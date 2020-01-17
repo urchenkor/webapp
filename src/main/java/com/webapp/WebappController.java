@@ -17,7 +17,7 @@ public class WebappController {
 
         @GetMapping
         public String main(Map<String, Object> model) {
-            model.put("some", "nice!");
+            model.put("some", "nice job!");
             return "main";
         }
 }

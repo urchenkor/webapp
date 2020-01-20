@@ -1,7 +1,25 @@
 <html>
 <body>
+<div>
+    <form method="post" action="addSubscriber"> <!-- post method for adding subscriber data in DB -->
+        <input type="text" name="firstName" placeholder="Введите имя абонента" />
+        <input type="text" name="plane" placeholder="Введите тарифный план" />
+        <button type="submit">Добавить</button>
+    </form>
+
+</div>
+
+<div>Список абонентов</div><!-- form for getting subscriber list-->
+    <form method="post" action="filter">
+        <input type="text" name="firstName" placeholder="Введите Имя абонента" />
+        <button type="submit">Найти абонента</button>
+    </form>
+{{#subscribers}}
     <div>
-        {{some}}
+        <b>{{id}}</b>
+        <b>{{firstName}}</b>
+        <i>{{plane}}</i>
     </div>
+{{/subscribers}}
 </body>
 </html>

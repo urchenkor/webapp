@@ -1,4 +1,4 @@
-package com.webapp;
+package com.webapp.controller;
 
 import com.webapp.domain.Subscriber;
 import com.webapp.repos.SubscriberRepos;
@@ -12,19 +12,17 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-public class WebappController {
+public class MainController {
 
         @Autowired
         private SubscriberRepos subscriberRepos;
 
-        @GetMapping("/greeting")
-        public String greeting(@RequestParam(name="name", required = false, defaultValue = "World") String name,
-                           Map<String, Object> model) {
-            model.put("name", name);
+        @GetMapping("/")
+        public String greeting(Map<String, Object> model) {
         return "greeting";
         }
 
-        @GetMapping
+        @GetMapping("/main")
         public String main(Map<String, Object> model) {
             Iterable<Subscriber> subscribers = subscriberRepos.findAll();
             model.put("subscribers", subscribers);

@@ -1,7 +1,14 @@
 <html>
 <body>
 <div>
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+        <input type="submit" value="sign out" />
+    </form>
+</div>
+<div>
     <form method="post" action="addSubscriber"> <!-- post method for adding subscriber data in DB -->
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <input type="text" name="firstName" placeholder="Введите имя абонента" />
         <input type="text" name="plane" placeholder="Введите тарифный план" />
         <button type="submit">Добавить</button>
@@ -11,6 +18,7 @@
 
 <div>Список абонентов</div><!-- form for getting subscriber list-->
     <form method="post" action="filter">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
         <input type="text" name="firstName" placeholder="Введите Имя абонента" />
         <button type="submit">Найти абонента</button>
     </form>
